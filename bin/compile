@@ -42,10 +42,9 @@ MCRYPT_URL="https://heroku-buildpack-php.s3.amazonaws.com/mcrypt-""$MCRYPT_VERSI
 echo "-----> Bundling mcrypt version $MCRYPT_VERSION"
 curl --silent --max-time 60 --location "$MCRYPT_URL" | tar xz
 
-APACHE_URL="http://desalasworks.com/apache-2.2.25-2.tar.gz"
+APACHE_URL="http://files.desalasworks.com/apache-2.2.25-2.tar.gz"
 echo "-----> Bundling Apache version $APACHE_VERSION"
-curl -sO "$APACHE_URL"
-tar xzf apache-2.2.25-2.tar.gz
+curl -sL "$APACHE_URL" -A "Mozilla Firefox" | tar xz
 
 PHP_URL="https://heroku-buildpack-php.s3.amazonaws.com/php-$PHP_VERSION""$heroku_rev"".tar.gz"
 echo "-----> Bundling PHP version $PHP_VERSION"
